@@ -92,7 +92,7 @@ describe('Teste', () => {
   });
 
   it('deve retornar 0 como a idade média se não houver animais', () => {
-    expect(zoo.getAverageAge()).toBe(0);
+    return expect(zoo.getAverageAge()).toBe(0);
   });
 
   // Cenário 7: Casos Especiais e Limite
@@ -117,3 +117,7 @@ describe('Teste', () => {
   });
 
 });
+function expect(arg0: Animal[]) {
+    throw new Error('Function not implemented.');
+}
+
