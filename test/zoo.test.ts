@@ -1,5 +1,4 @@
-import { Zoo, Animal } from '../src/challenge/zoo';
- // Ajuste o caminho conforme necessário
+import { Zoo, Animal } from '../src/challenge/zoo'; // Ajuste o caminho conforme necessário
 
 describe('Teste', () => {
   
@@ -48,13 +47,13 @@ describe('Teste', () => {
 
   // Cenário 4: Recuperar todos os animais do zoológico
   it('deve retornar todos os animais no zoológico', () => {
-    const Leão = new Animal('Leo', 'Leão', 5);
-    const Tigre = new Animal('Tigres', 'Tigre', 3);
-    zoo.addAnimal(Leão);
-    zoo.addAnimal(Tigre);
+    const leao = new Animal('Leo', 'Leão', 5);
+    const tigre = new Animal('Tigres', 'Tigre', 3);
+    zoo.addAnimal(leao);
+    zoo.addAnimal(tigre);
     const animals = zoo.getAllAnimals();
-    expect(animals).toContain(Leão);
-    expect(animals).toContain(Tigre);
+    expect(animals).toContain(leao);
+    expect(animals).toContain(tigre);
   });
 
   it('deve retornar um array vazio se o zoológico estiver vazio', () => {
@@ -63,61 +62,57 @@ describe('Teste', () => {
 
   // Cenário 5: Recuperar animais por espécie
   it('deve retornar os animais por espécie', () => {
-    const Leão1 = new Animal('Leo', 'Leão', 5);
-    const Leão2 = new Animal('Simba', 'Leão', 4);
-    const Tigre = new Animal('Tigres', 'Tigre', 3);
-    zoo.addAnimal(Leão1);
-    zoo.addAnimal(Leão2);
-    zoo.addAnimal(Tigre);
-    const Leãos = zoo.getAnimalsBySpecies('Leão');
-    expect(Leãos).toContain(Leão1);
-    expect(Leãos).toContain(Leão2);
-    expect(Leãos).not.toContain(Tigre);
+    const leao1 = new Animal('Leo', 'Leão', 5);
+    const leao2 = new Animal('Simba', 'Leão', 4);
+    const tigre = new Animal('Tigres', 'Tigre', 3);
+    zoo.addAnimal(leao1);
+    zoo.addAnimal(leao2);
+    zoo.addAnimal(tigre);
+    const leoes = zoo.getAnimalsBySpecies('Leão');
+    expect(leoes).toContain(leao1);
+    expect(leoes).toContain(leao2);
+    expect(leoes).not.toContain(tigre);
   });
 
   it('deve retornar um array vazio se não existirem animais da espécie', () => {
-    const Tigre = new Animal('Tigres', 'Tigre', 3);
-    zoo.addAnimal(Tigre);
-    const Leãos = zoo.getAnimalsBySpecies('Leão');
-    expect(Leãos).toEqual([]);
+    const tigre = new Animal('Tigres', 'Tigre', 3);
+    zoo.addAnimal(tigre);
+    const leoes = zoo.getAnimalsBySpecies('Leão');
+    expect(leoes).toEqual([]);
   });
 
   // Cenário 6: Calcular a idade média dos animais
   it('deve retornar a idade média dos animais', () => {
-    const Leão = new Animal('Leo', 'Leão', 5);
-    const Tigre = new Animal('Tigres', 'Tigre', 3);
-    zoo.addAnimal(Leão);
-    zoo.addAnimal(Tigre);
+    const leao = new Animal('Leo', 'Leão', 5);
+    const tigre = new Animal('Tigres', 'Tigre', 3);
+    zoo.addAnimal(leao);
+    zoo.addAnimal(tigre);
     expect(zoo.getAverageAge()).toBe(4);
   });
 
   it('deve retornar 0 como a idade média se não houver animais', () => {
-    return expect(zoo.getAverageAge()).toBe(0);
+    expect(zoo.getAverageAge()).toBe(0);
   });
 
   // Cenário 7: Casos Especiais e Limite
   it('deve permitir adicionar animais com nomes duplicados', () => {
-    const Leão1 = new Animal('Leo', 'Leão', 5);
-    const Leão2 = new Animal('Leo', 'Leão', 4);
-    zoo.addAnimal(Leão1);
-    zoo.addAnimal(Leão2);
+    const leao1 = new Animal('Leo', 'Leão', 5);
+    const leao2 = new Animal('Leo', 'Leão', 4);
+    zoo.addAnimal(leao1);
+    zoo.addAnimal(leao2);
     const animals = zoo.getAllAnimals();
-    expect(animals).toContain(Leão1);
-    expect(animals).toContain(Leão2);
+    expect(animals).toContain(leao1);
+    expect(animals).toContain(leao2);
   });
 
   it('deve remover todos os animais e deixar o zoológico vazio', () => {
-    const Leão = new Animal('Leo', 'Leão', 5);
-    const Tigre = new Animal('Tigres', 'Tigre', 3);
-    zoo.addAnimal(Leão);
-    zoo.addAnimal(Tigre);
+    const leao = new Animal('Leo', 'Leão', 5);
+    const tigre = new Animal('Tigres', 'Tigre', 3);
+    zoo.addAnimal(leao);
+    zoo.addAnimal(tigre);
     zoo.removeAnimal('Leo');
     zoo.removeAnimal('Tigres');
     expect(zoo.getAllAnimals()).toEqual([]);
   });
 
 });
-function expect(arg0: Animal[]) {
-    throw new Error('Function not implemented.');
-}
-
